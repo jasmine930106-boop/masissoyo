@@ -748,6 +748,42 @@ header .banner .tools *{
     box-sizing: border-box;
   }
 }
+/* =========================
+   手機版：修正內容變窄問題
+   ========================= */
+
+@media (max-width: 900px){
+
+  /* 1️⃣ sidebar 在手機不佔版面空間 */
+  .sidebar{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    z-index: 1000;
+  }
+
+  /* 打開抽屜時才滑出來 */
+  .layout.drawer-open .sidebar{
+    transform: translateX(0);
+  }
+
+  /* 2️⃣ 右側頁面「一定要吃滿螢幕」 */
+  .page{
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
+  /* 3️⃣ main 也不能被限制寬度 */
+  .page main{
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto;
+  }
+
+}
+
 
 
 
