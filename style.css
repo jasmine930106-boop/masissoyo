@@ -637,4 +637,30 @@ header .banner .tools *{
 .hero::after{
   pointer-events: none;
 }
+/* ===== 修正：手機抽屜可點（遮罩層級）===== */
+@media (max-width: 900px){
+
+  /* 抽屜本體一定要在遮罩上面 */
+  .nav{
+    z-index: 2000 !important;
+    position: fixed;
+  }
+
+  /* 黑色遮罩在抽屜下面 */
+  .layout::before{
+    z-index: 1500 !important;
+  }
+
+  /* 右上角按鈕也要在最上層 */
+  .sidebar{
+    z-index: 2100 !important;
+  }
+
+  /* 內容在最下面 */
+  .page{
+    position: relative;
+    z-index: 1;
+  }
+}
+
 
