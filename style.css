@@ -514,5 +514,129 @@ header .banner .tools *{
 .hero::after{
   pointer-events: none;
 }
+/* =========================
+   RWD：手機「右上角按鈕 + 左側滑出選單」
+   貼到 style.css 最底下
+========================= */
+
+@media (max-width: 900px){
+
+  /* 1) 手機：上方變成一條 header 느낌（sidebar 只留品牌+按鈕） */
+  .layout{
+    display: block !important;
+  }
+
+  .sidebar{
+    position: sticky;
+    top: 0;
+    z-index: 1200;
+    width: 100%;
+    height: auto;
+    padding: 14px 14px 10px;
+    border-right: none;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+    background: var(--bg, #fbf4ea);
+  }
+
+  .asideTop{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  /* 右上角按鈕固定在最右邊 */
+  .toggle{
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+  }
+
+  /* 2) 手機：把 nav 變成「抽屜」，預設藏在左邊 */
+  .nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100dvh;           /* iPhone 比 100vh 更穩 */
+    width: min(86vw, 340px);  /* 抽屜寬度 */
+    padding: 92px 14px 18px;  /* 上面留空給品牌區 */
+    background: var(--bg, #fbf4ea);
+    border-right: 1px solid rgba(0,0,0,.12);
+    box-shadow: 12px 0 30px rgba(0,0,0,.18);
+    overflow: auto;
+
+    transform: translateX(-105%);
+    transition: transform .28s ease;
+    z-index: 1400;
+
+    display: grid;
+    gap: 12px;
+  }
+
+  /* nav 裡的按鈕：大一點好點 */
+  .nav a{
+    height: 52px;
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  /* 3) 抽屜打開狀態：加一個 class 控制 */
+  .layout.drawer-open .nav{
+    transform: translateX(0);
+  }
+
+  /* 4) 抽屜打開時的遮罩（點遮罩可關閉） */
+  .layout::before{
+    content:"";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .28s ease;
+    z-index: 1300;
+  }
+
+  .layout.drawer-open::before{
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* 5) 右側內容正常往下，不要被 nav 影響 */
+  .page{
+    width: 100%;
+  }
+
+  main{
+    padding: 16px 12px 44px;
+  }
+
+  /* 6) Banner 工具列固定右上，不要跑位 */
+  .tools{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 5;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .audio{
+    max-width: 240px;
+  }
+
+  /* 7) 商品卡：手機改 1 欄最穩 */
+  .grid{
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 遮罩不要擋點擊（如果你有 banner::after / hero::after） */
+.banner::after,
+.hero::after{
+  pointer-events: none;
+}
+
 
 
