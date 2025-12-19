@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <title>熱量資訊｜瑪西搜唷</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="layout" id="layout">
+
+  <!-- 左側選單 -->
+  <aside class="sidebar">
+    <div class="asideTop">
+      <div class="brand">
+        <span class="brandText">瑪西搜唷</span>
+        <span class="brandSub">MASISSOYO</span>
+      </div>
+      <button class="toggle" id="toggleBtn" aria-label="toggle menu">☰</button>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">🏠 <span class="label">首頁</span></a>
+      <a href="about.html">📖 <span class="label">品牌故事</span></a>
+      <a href="news.html">📰 <span class="label">最新消息</span></a>
+      <a href="menu.html">⭐ <span class="label">精選菜單</span></a>
+      <a href="chicken.html">🍗 <span class="label">單點炸雞</span></a>
+      <a href="side.html">🍟 <span class="label">配餐與飲料</span></a>
+     <a class="active" href="calorie.html">📊 <span class="label">熱量資訊</span></a>
+      <a href="store.html">📍 <span class="label">門市據點</span></a>
+      <a href="franchise.html">🤝 <span class="label">加盟資訊</span></a>
+      <a href="contact.html">☎️ <span class="label">聯絡我們</span></a>
+    </nav>
+  </aside>
+
+
+  <!-- 右側內容 -->
+  <div>
+
+    <!-- 上方 Banner -->
+    <header>
+      <div class="banner" style="background-image:url('images/chicken-header.jpg');">
+        <div class="tools">
+          <button class="toolBtn">語系：中文</button>
+          <audio class="audio" controls src="media/webmusic.mp3"></audio>
+        </div>
+      </div>
+    </header>
+
+    <!-- 主要內容 -->
+    <main>
+
+      <!-- 頁面說明 -->
+      <article>
+        <h1>熱量資訊</h1>
+        <div class="content">
+          本頁提供瑪西搜唷主要餐點之熱量參考資訊，
+          實際數值可能因食材來源與烹調方式略有差異，
+          數據僅供消費者作為飲食選擇參考。
+        </div>
+      </article>
+
+      <!-- 熱量表（炸雞） -->
+      <article>
+        <h1>單點炸雞（每份）</h1>
+        <div class="content">
+          <p>以下熱量以單點炸雞「小份 / 大份」為基準：</p>
+          <ul>
+            <li>原味炸雞：小份 約 420 kcal｜大份 約 720 kcal</li>
+            <li>辣味炸雞：小份 約 450 kcal｜大份 約 760 kcal</li>
+            <li>甜辣洋釀：小份 約 480 kcal｜大份 約 800 kcal</li>
+            <li>蒜香醬油：小份 約 470 kcal｜大份 約 790 kcal</li>
+            <li>起司粉炸雞：小份 約 520 kcal｜大份 約 860 kcal</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 熱量表（配餐與飲料） -->
+      <article>
+        <h1>配餐與飲料</h1>
+        <div class="content">
+          <ul>
+            <li>酥脆薯條：約 310 kcal</li>
+            <li>拳頭飯糰：約 380 kcal</li>
+            <li>炸年糕：約 260 kcal</li>
+            <li>可樂（中杯）：約 140 kcal</li>
+            <li>雪碧（中杯）：約 130 kcal</li>
+            <li>無糖綠茶：0 kcal</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 健康提醒 -->
+      <article>
+        <h1>飲食提醒</h1>
+        <div class="content">
+          建議消費者依個人飲食需求適量攝取，
+          可搭配無糖飲品或與他人分享大份餐點，
+          以維持均衡飲食與健康生活型態。
+        </div>
+      </article>
+
+    </main>
+
+    <!-- 頁尾 -->
+    <footer>
+  <div class="footerRow footerOne">
+    © 2025 瑪西搜唷 MASISSOYO
+  </div>
+</footer>
+
+
+  </div>
+</div>
+
+<!-- 左側選單收合 -->
+<script>
+  const layout = document.getElementById("layout");
+  document.getElementById("toggleBtn").onclick = () => {
+    layout.classList.toggle("collapsed");
+  };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <title>加盟資訊｜瑪西搜唷</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="layout" id="layout">
+
+  <!-- 左側選單 -->
+  <aside class="sidebar">
+    <div class="asideTop">
+      <div class="brand">
+        <span class="brandText">瑪西搜唷</span>
+        <span class="brandSub">MASISSOYO</span>
+      </div>
+      <button class="toggle" id="toggleBtn" aria-label="toggle menu">☰</button>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">🏠 <span class="label">首頁</span></a>
+      <a href="about.html">📖 <span class="label">品牌故事</span></a>
+      <a href="news.html">📰 <span class="label">最新消息</span></a>
+      <a href="menu.html">⭐ <span class="label">精選菜單</span></a>
+      <a href="chicken.html">🍗 <span class="label">單點炸雞</span></a>
+      <a href="side.html">🍟 <span class="label">配餐與飲料</span></a>
+      <a href="calorie.html">📊 <span class="label">熱量資訊</span></a>
+      <a href="store.html">📍 <span class="label">門市據點</span></a>
+      <a class="active" href="franchise.html">🤝 <span class="label">加盟資訊</span></a>
+      <a href="contact.html">☎️ <span class="label">聯絡我們</span></a>
+    </nav>
+  </aside>
+
+
+  <!-- 右側內容 -->
+  <div>
+
+    <!-- 上方 Banner -->
+    <header>
+      <div class="banner" style="background-image:url('images/chicken-header.jpg');">
+        <div class="tools">
+          <button class="toolBtn">語系：中文</button>
+          <audio class="audio" controls src="media/webmusic.mp3"></audio>
+        </div>
+      </div>
+    </header>
+
+    <!-- 主要內容 -->
+    <main>
+
+      <!-- 加盟介紹 -->
+      <article>
+        <h1>加盟瑪西搜唷</h1>
+        <div class="content">
+          瑪西搜唷誠摯邀請對餐飲服務與品牌經營有熱忱的夥伴加入，
+          透過完整的教育訓練與營運支援，
+          共同打造穩定且具成長潛力的韓式炸雞品牌。
+        </div>
+      </article>
+
+      <!-- 加盟優勢 -->
+      <article>
+        <h1>加盟優勢</h1>
+        <div class="content">
+          <ul>
+            <li>成熟品牌形象與穩定產品品質</li>
+            <li>標準化製作流程，降低營運難度</li>
+            <li>完整教育訓練與開店輔導</li>
+            <li>行銷活動與品牌曝光支援</li>
+            <li>總部持續研發新口味與新品</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 加盟條件 -->
+      <article>
+        <h1>加盟基本條件</h1>
+        <div class="content">
+          <ul>
+            <li>具備餐飲服務熱忱與基本管理能力</li>
+            <li>願意配合總部營運與品牌規範</li>
+            <li>能全職或投入主要經營管理</li>
+            <li>門市位置須經總部評估審核</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 加盟流程 -->
+      <article>
+        <h1>加盟流程</h1>
+        <div class="content">
+          <ol>
+            <li>填寫加盟諮詢表單</li>
+            <li>總部聯繫並進行初步說明</li>
+            <li>雙方洽談加盟細節與評估</li>
+            <li>簽訂加盟合約</li>
+            <li>教育訓練與門市籌備</li>
+            <li>正式開幕營運</li>
+          </ol>
+        </div>
+      </article>
+
+      <!-- 提醒 -->
+      <article>
+        <h1>注意事項</h1>
+        <div class="content">
+          加盟相關費用、實際營運條件與支援內容，
+          皆依正式合約內容為準。
+          本頁資訊僅供初步參考，
+          詳細說明請與總部專人聯繫。
+        </div>
+      </article>
+
+    </main>
+
+    <!-- 頁尾 -->
+    <footer>
+  <div class="footerRow footerOne">
+    © 2025 瑪西搜唷 MASISSOYO
+  </div>
+</footer>
+
+
+  </div>
+</div>
+
+<!-- 左側選單收合 -->
+<script>
+  const layout = document.getElementById("layout");
+  document.getElementById("toggleBtn").onclick = () => {
+    layout.classList.toggle("collapsed");
+  };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <title>品牌故事｜瑪西搜唷</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="layout" id="layout">
+
+  <!-- 左側選單 -->
+  <aside class="sidebar">
+    <div class="asideTop">
+      <div class="brand">
+        <span class="brandText">瑪西搜唷</span>
+        <span class="brandSub">MASISSOYO</span>
+      </div>
+      <button class="toggle" id="toggleBtn" aria-label="toggle menu">☰</button>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">🏠 <span class="label">首頁</span></a>
+     <a class="active" href="about.html">📖 <span class="label">品牌故事</span></a>
+      <a href="news.html">📰 <span class="label">最新消息</span></a>
+      <a href="menu.html">⭐ <span class="label">精選菜單</span></a>
+      <a href="chicken.html">🍗 <span class="label">單點炸雞</span></a>
+      <a href="side.html">🍟 <span class="label">配餐與飲料</span></a>
+      <a href="calorie.html">📊 <span class="label">熱量資訊</span></a>
+      <a href="store.html">📍 <span class="label">門市據點</span></a>
+      <a href="franchise.html">🤝 <span class="label">加盟資訊</span></a>
+      <a href="contact.html">☎️ <span class="label">聯絡我們</span></a>
+    </nav>
+  </aside>
+
+
+  <!-- 右側內容 -->
+  <div>
+
+    <!-- 上方 Banner -->
+    <header>
+      <div class="banner" style="background-image:url('images/chicken-header.jpg');">
+        <div class="tools">
+          <button class="toolBtn">語系：中文</button>
+          <audio class="audio" controls src="media/webmusic.mp3"></audio>
+        </div>
+      </div>
+    </header>
+
+    <!-- 主要內容 -->
+    <main>
+
+      <!-- 品牌介紹 -->
+      <article>
+        <h1>關於瑪西搜唷</h1>
+        <div class="content">
+          「瑪西搜唷」源自韓文中表達美味讚嘆的用語，
+          象徵我們希望顧客在品嚐每一口炸雞時，
+          都能由衷說出「真的好吃」的感受。
+        </div>
+      </article>
+
+      <!-- 品牌理念 -->
+      <article>
+        <h1>品牌理念</h1>
+        <div class="content">
+          我們堅持使用新鮮食材，採用現點現炸的料理方式，
+          搭配每日新鮮調製的韓式醬料，
+          呈現外酥內嫩、層次豐富的經典韓式炸雞風味。
+          不論是經典原味或創新口味，
+          都希望為顧客帶來最純粹的美味體驗。
+        </div>
+      </article>
+
+      <!-- 用餐體驗 -->
+      <article>
+        <h1>用餐體驗</h1>
+        <div class="content">
+          瑪西搜唷致力於打造輕鬆、溫暖的用餐氛圍，
+          不論是朋友聚餐、家庭分享或外帶享用，
+          都能感受到我們對餐點品質與服務細節的用心。
+          我們相信，美味不只是味道，更是一種幸福的體驗。
+        </div>
+      </article>
+
+    </main>
+
+    <!-- 頁尾 -->
+    <footer>
+  <div class="footerRow footerOne">
+    © 2025 瑪西搜唷 MASISSOYO
+  </div>
+</footer>
+
+
+
+  </div>
+</div>
+
+<!-- 左側選單收合 -->
+<script>
+  const layout = document.getElementById("layout");
+  document.getElementById("toggleBtn").onclick = () => {
+    layout.classList.toggle("collapsed");
+  };
+</script>
+
+</body>
+</html>

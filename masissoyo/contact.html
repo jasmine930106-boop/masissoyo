@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <title>聯絡我們｜瑪西搜唷</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="layout" id="layout">
+
+  <!-- 左側選單 -->
+  <aside class="sidebar">
+    <div class="asideTop">
+      <div class="brand">
+        <span class="brandText">瑪西搜唷</span>
+        <span class="brandSub">MASISSOYO</span>
+      </div>
+      <button class="toggle" id="toggleBtn" aria-label="toggle menu">☰</button>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">🏠 <span class="label">首頁</span></a>
+      <a href="about.html">📖 <span class="label">品牌故事</span></a>
+      <a href="news.html">📰 <span class="label">最新消息</span></a>
+      <a href="menu.html">⭐ <span class="label">精選菜單</span></a>
+      <a href="chicken.html">🍗 <span class="label">單點炸雞</span></a>
+      <a href="side.html">🍟 <span class="label">配餐與飲料</span></a>
+      <a href="calorie.html">📊 <span class="label">熱量資訊</span></a>
+      <a href="store.html">📍 <span class="label">門市據點</span></a>
+      <a href="franchise.html">🤝 <span class="label">加盟資訊</span></a>
+      <a class="active" href="contact.html">☎️ <span class="label">聯絡我們</span></a>
+    </nav>
+  </aside>
+
+
+  <!-- 右側內容 -->
+  <div>
+
+    <!-- 上方 Banner -->
+    <header>
+      <div class="banner" style="background-image:url('images/chicken-header.jpg');">
+        <div class="tools">
+          <button class="toolBtn">語系：中文</button>
+          <audio class="audio" controls src="media/webmusic.mp3"></audio>
+        </div>
+      </div>
+    </header>
+
+    <!-- 主要內容 -->
+    <main>
+
+      <!-- 頁面說明 -->
+      <article>
+        <h1>聯絡我們</h1>
+        <div class="content">
+          若您對瑪西搜唷的餐點、門市、加盟合作或其他相關事宜有任何疑問，
+          歡迎透過以下方式與我們聯繫，我們將盡快回覆您的訊息。
+        </div>
+      </article>
+
+      <!-- 聯絡方式 -->
+      <article>
+        <h1>聯絡資訊</h1>
+        <div class="content">
+          <ul>
+            <li>客服專線：02-3456-7890</li>
+            <li>服務時間：週一至週五 10:00－18:00</li>
+            <li>電子信箱：service@masissoyo.com</li>
+            <li>官方 Line：@masissoyo</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 表單說明（示意，不需真的送出） -->
+      <article>
+        <h1>線上諮詢</h1>
+        <div class="content">
+          您亦可透過線上諮詢方式留下您的問題與聯絡方式，
+          我們將由專人與您聯繫。
+        </div>
+
+        <!-- 表單（作業示意用） -->
+        <form>
+          <p>
+            <label>姓名<br>
+              <input type="text" placeholder="請輸入您的姓名">
+            </label>
+          </p>
+
+          <p>
+            <label>Email<br>
+              <input type="email" placeholder="請輸入您的 Email">
+            </label>
+          </p>
+
+          <p>
+            <label>聯絡事項<br>
+              <textarea rows="4" placeholder="請輸入您的留言內容"></textarea>
+            </label>
+          </p>
+
+          <p>
+            <button type="button" onclick="submitForm()">送出</button>
+          </p>
+        </form>
+      
+    </main>
+
+    <!-- 頁尾 -->
+    <footer>
+  <div class="footerRow footerOne">
+    © 2025 瑪西搜唷 MASISSOYO
+  </div>
+</footer>
+
+
+  </div>
+</div>
+
+<!-- 左側選單收合 -->
+<script>
+  const layout = document.getElementById("layout");
+  document.getElementById("toggleBtn").onclick = () => {
+    layout.classList.toggle("collapsed");
+  };
+</script>
+
+</body>
+</html><script>
+  function submitForm(){
+    alert("感謝您的填寫！\n我們已收到您的訊息，將盡快與您聯繫。");
+  }
+</script>
+

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <title>瑪西搜唷 MASISSOYO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="layout" id="layout">
+
+  <!-- 左側選單 -->
+  <aside class="sidebar">
+    <div class="asideTop">
+      <div class="brand">
+        <span class="brandText">瑪西搜唷</span>
+        <span class="brandSub">MASISSOYO</span>
+      </div>
+      <button class="toggle" id="toggleBtn" aria-label="toggle menu">☰</button>
+    </div>
+
+    <nav class="nav">
+      <a class="active" href="index.html">🏠 <span class="label">首頁</span></a>
+      <a href="about.html">📖 <span class="label">品牌故事</span></a>
+      <a href="news.html">📰 <span class="label">最新消息</span></a>
+      <a href="menu.html">⭐ <span class="label">精選菜單</span></a>
+      <a href="chicken.html">🍗 <span class="label">單點炸雞</span></a>
+      <a href="side.html">🍟 <span class="label">配餐與飲料</span></a>
+      <a href="calorie.html">📊 <span class="label">熱量資訊</span></a>
+      <a href="store.html">📍 <span class="label">門市據點</span></a>
+      <a href="franchise.html">🤝 <span class="label">加盟資訊</span></a>
+      <a href="contact.html">☎️ <span class="label">聯絡我們</span></a>
+    </nav>
+  </aside>
+
+  <!-- 右側：整頁 Hero -->
+  <div class="page">
+
+    <header class="hero" style="background-image:url('images/hero.jpg');">
+      <div class="heroOverlay"></div>
+
+      <div class="tools">
+        <button class="toolBtn">語系：中文</button>
+        <audio class="audio" controls src="media/webmusic.mp3"></audio>
+      </div>
+
+      <div class="heroCenter">
+        <div class="heroSmall">SHARE WITH FAMILY AND FRIENDS</div>
+        <div class="heroKorean">환영합니다 · 마시쏘요</div>
+        <div class="heroTitle">MASISSOYO</div>
+        <div class="heroLine"></div>
+        <div class="heroSlogan">一口酥脆，帶給大家滿滿的能量</div>
+      </div>
+
+      
+    </header>
+
+  </div>
+</div>
+
+<script>
+  const layout = document.getElementById("layout");
+  document.getElementById("toggleBtn").onclick = () => {
+    layout.classList.toggle("collapsed");
+  };
+</script>
+
+</body>
+</html>
