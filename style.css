@@ -1,4 +1,53 @@
 /* =========================
+   全站一致化（解決手機字大小/版面不一致）
+   ========================= */
+
+/* 1) 全站盒模型一致 */
+*{ box-sizing: border-box; }
+html, body{ margin:0; padding:0; }
+
+/* 2) iPhone 會偷偷把字放大（導致每頁字大小不同）
+      這行就是專門治這個 */
+html{
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  font-size: 16px; /* 全站基準 */
+}
+
+/* 3) 全站文字基礎統一 */
+body{
+  font-family: system-ui, -apple-system, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  line-height: 1.6;
+  color: #111;
+}
+
+/* 4) 讓每頁右側內容區的寬度、留白統一（超重要） */
+.page main{
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* 5) 每一頁的文章卡片/標題（避免有的頁面 h1 超大） */
+.page article h1{
+  margin: 0 0 10px;
+  font-size: 40px;
+  line-height: 1.15;
+}
+
+/* 6) 手機版統一：標題/內文字級（避免某頁看起來更大） */
+@media (max-width: 900px){
+  .page main{ padding: 16px; }
+
+  .page article h1{
+    font-size: 34px;  /* 手機頁面大標統一 */
+  }
+
+  body{
+    font-size: 16px;  /* 手機內文統一 */
+  }
+}
+/* =========================
    MASISSOYO 韓式炸雞網站
    奶油白 × 韓式紅 × 炭黑 × 金黃
    ========================= */
@@ -699,6 +748,7 @@ header .banner .tools *{
     box-sizing: border-box;
   }
 }
+
 
 
 
