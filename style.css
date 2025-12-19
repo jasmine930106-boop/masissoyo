@@ -662,5 +662,28 @@ header .banner .tools *{
     z-index: 1;
   }
 }
+/* ===== 手機：首頁大字左右不被切掉（通用版）===== */
+@media (max-width: 900px){
+  /* 首頁主要內容左右留白，避免文字貼邊被切 */
+  .page{
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+  }
+
+  /* 如果首頁的大字是 h1（很常見），用 clamp 自動縮放 */
+  .page h1{
+    font-size: clamp(42px, 14vw, 72px); /* 會隨手機寬度縮放 */
+    line-height: 1.05;
+    letter-spacing: 0.06em;
+    text-align: center;
+
+    /* 防止任何溢出 */
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}
+
 
 
