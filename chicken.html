@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <title>單點炸雞｜瑪西搜唷</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="layout" id="layout">
+
+  <!-- 左側選單 -->
+  <aside class="sidebar">
+    <div class="asideTop">
+      <div class="brand">
+        <span class="brandText">瑪西搜唷</span>
+        <span class="brandSub">MASISSOYO</span>
+      </div>
+      <button class="toggle" id="toggleBtn" aria-label="toggle menu">☰</button>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">🏠 <span class="label">首頁</span></a>
+      <a href="about.html">📖 <span class="label">品牌故事</span></a>
+      <a href="news.html">📰 <span class="label">最新消息</span></a>
+      <a href="menu.html">⭐ <span class="label">精選菜單</span></a>
+    <a class="active" href="chicken.html">🍗 <span class="label">單點炸雞</span></a>
+      <a href="side.html">🍟 <span class="label">配餐與飲料</span></a>
+      <a href="calorie.html">📊 <span class="label">熱量資訊</span></a>
+      <a href="store.html">📍 <span class="label">門市據點</span></a>
+      <a href="franchise.html">🤝 <span class="label">加盟資訊</span></a>
+      <a href="contact.html">☎️ <span class="label">聯絡我們</span></a>
+    </nav>
+  </aside>
+
+
+  <!-- 右側內容 -->
+  <div class="page">
+
+    <!-- 上方 Banner（跟其他頁一致） -->
+    <header>
+      <div class="banner" style="background-image:url('images/chicken-header.jpg');">
+        <div class="tools">
+          <button class="toolBtn">語系：中文</button>
+          <audio class="audio" controls src="media/webmusic.mp3"></audio>
+        </div>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- 介紹 -->
+      <article>
+        <h1>單點炸雞</h1>
+        <div class="content">
+          提供小份與大份選擇，適合一人獨享或多人分享。<br>
+          價格依份量調整，實際供應以門市為準。
+        </div>
+      </article>
+
+      <!-- 商品區 -->
+      <article>
+        <h1>炸雞口味</h1>
+        <div class="grid">
+
+          <div class="product">
+            <h2>原味炸雞</h2>
+            <div class="imgWrap">
+              <img src="images/original.jpg" alt="原味炸雞">
+            </div>
+            <div class="dash"></div>
+            <div class="price">小份 NT$129｜大份 NT$229</div>
+          </div>
+
+          <div class="product">
+            <h2>辣味炸雞</h2>
+            <div class="imgWrap">
+              <img src="images/spicy.jpg" alt="辣味炸雞">
+            </div>
+            <div class="dash"></div>
+            <div class="price">小份 NT$139｜大份 NT$239</div>
+          </div>
+
+          <div class="product">
+            <h2>甜辣洋釀</h2>
+            <div class="imgWrap">
+              <img src="images/yangnyeom.jpg" alt="甜辣洋釀">
+            </div>
+            <div class="dash"></div>
+            <div class="price">小份 NT$149｜大份 NT$249</div>
+          </div>
+
+          <div class="product">
+            <h2>蒜香醬油</h2>
+            <div class="imgWrap">
+              <img src="images/garlic_soy.jpg" alt="蒜香醬油">
+            </div>
+            <div class="dash"></div>
+            <div class="price">小份 NT$149｜大份 NT$249</div>
+          </div>
+
+          <div class="product">
+            <h2>起司粉炸雞</h2>
+            <div class="imgWrap">
+              <img src="images/cheese.jpg" alt="起司粉炸雞">
+            </div>
+            <div class="dash"></div>
+            <div class="price">小份 NT$159｜大份 NT$259</div>
+          </div>
+
+          <div class="product">
+            <h2>季節限定口味</h2>
+            <div class="imgWrap">
+              <img src="images/question.jpg" alt="季節限定口味">
+            </div>
+            <div class="dash"></div>
+            <div class="price">小份 NT$169｜大份 NT$269</div>
+          </div>
+
+        </div>
+      </article>
+
+    </main>
+
+    <!-- 頁尾 -->
+    <footer>
+  <div class="footerRow footerOne">
+    © 2025 瑪西搜唷 MASISSOYO
+  </div>
+</footer>
+
+
+  </div>
+</div>
+
+<script>
+  const layout = document.getElementById("layout");
+  document.getElementById("toggleBtn").onclick = () => {
+    layout.classList.toggle("collapsed");
+  };
+</script>
+
+</body>
+</html>

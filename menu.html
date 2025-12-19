@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <title>精選菜單｜瑪西搜唷</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="layout" id="layout">
+
+  <!-- 左側選單 -->
+  <aside class="sidebar">
+    <div class="asideTop">
+      <div class="brand">
+        <span class="brandText">瑪西搜唷</span>
+        <span class="brandSub">MASISSOYO</span>
+      </div>
+      <button class="toggle" id="toggleBtn" aria-label="toggle menu">☰</button>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">🏠 <span class="label">首頁</span></a>
+      <a href="about.html">📖 <span class="label">品牌故事</span></a>
+      <a href="news.html">📰 <span class="label">最新消息</span></a>
+     <a class="active" href="menu.html">⭐ <span class="label">精選菜單</span></a>
+      <a href="chicken.html">🍗 <span class="label">單點炸雞</span></a>
+      <a href="side.html">🍟 <span class="label">配餐與飲料</span></a>
+      <a href="calorie.html">📊 <span class="label">熱量資訊</span></a>
+      <a href="store.html">📍 <span class="label">門市據點</span></a>
+      <a href="franchise.html">🤝 <span class="label">加盟資訊</span></a>
+      <a href="contact.html">☎️ <span class="label">聯絡我們</span></a>
+    </nav>
+  </aside>
+
+
+  <!-- 右側內容 -->
+  <div>
+
+    <!-- 上方 Banner -->
+    <header>
+      <div class="banner" style="background-image:url('images/chicken-header.jpg');">
+        <div class="tools">
+          <button class="toolBtn">語系：中文</button>
+          <audio class="audio" controls src="media/webmusic.mp3"></audio>
+        </div>
+      </div>
+    </header>
+
+    <!-- 主要內容 -->
+    <main>
+
+      <!-- 頁面說明 -->
+      <article>
+        <h1>精選菜單</h1>
+        <div class="content">
+          精選多款人氣韓式炸雞口味，堅持現點現炸，
+          搭配獨家醬料，呈現外酥內嫩的經典風味。
+        </div>
+      </article>
+
+      <!-- 菜單商品（第一排） -->
+      <div class="grid">
+        <section class="product">
+          <h2>原味炸雞</h2>
+          <div class="imgWrap">
+            <img src="images/original.jpg" alt="原味炸雞">
+          </div>
+          <div class="dash"></div>
+          <div class="price">NT$129 起</div>
+        </section>
+
+        <section class="product">
+          <h2>辣味炸雞</h2>
+          <div class="imgWrap">
+            <img src="images/spicy.jpg" alt="辣味炸雞">
+          </div>
+          <div class="dash"></div>
+          <div class="price">NT$149 起</div>
+        </section>
+
+        <section class="product">
+          <h2>甜辣洋釀</h2>
+          <div class="imgWrap">
+            <img src="images/yangnyeom.jpg" alt="甜辣洋釀">
+          </div>
+          <div class="dash"></div>
+          <div class="price">NT$149 起</div>
+        </section>
+      </div>
+
+      <!-- 菜單商品（第二排） -->
+      <div class="grid" style="margin-top:14px;">
+        <section class="product">
+          <h2>蒜香醬油</h2>
+          <div class="imgWrap">
+            <img src="images/garlic_soy.jpg" alt="蒜香醬油">
+          </div>
+          <div class="dash"></div>
+          <div class="price">NT$149 起</div>
+        </section>
+
+        <section class="product">
+          <h2>起司粉炸雞</h2>
+          <div class="imgWrap">
+            <img src="images/cheese.jpg" alt="起司粉炸雞">
+          </div>
+          <div class="dash"></div>
+          <div class="price">NT$159 起</div>
+        </section>
+
+        <!-- 留白卡片（視覺平衡用，可之後補） -->
+        <section class="product">
+          <h2>期間限定</h2>
+          <div class="imgWrap">
+            <img src="images/question.jpg" alt="期間限定">
+          </div>
+          <div class="dash"></div>
+          <div class="price">敬請期待</div>
+        </section>
+      </div>
+
+    </main>
+
+    <!-- 頁尾 -->
+    <footer>
+  <div class="footerRow footerOne">
+    © 2025 瑪西搜唷 MASISSOYO
+  </div>
+</footer>
+
+
+  </div>
+</div>
+
+<!-- 左側選單收合 -->
+<script>
+  const layout = document.getElementById("layout");
+  document.getElementById("toggleBtn").onclick = () => {
+    layout.classList.toggle("collapsed");
+  };
+</script>
+
+</body>
+</html>

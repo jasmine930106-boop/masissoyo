@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <title>最新消息｜瑪西搜唷</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="layout" id="layout">
+
+  <!-- 左側選單 -->
+  <aside class="sidebar">
+    <div class="asideTop">
+      <div class="brand">
+        <span class="brandText">瑪西搜唷</span>
+        <span class="brandSub">MASISSOYO</span>
+      </div>
+      <button class="toggle" id="toggleBtn" aria-label="toggle menu">☰</button>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">🏠 <span class="label">首頁</span></a>
+      <a href="about.html">📖 <span class="label">品牌故事</span></a>
+      <a class="active" href="news.html">📰 <span class="label">最新消息</span></a>
+      <a href="menu.html">⭐ <span class="label">精選菜單</span></a>
+      <a href="chicken.html">🍗 <span class="label">單點炸雞</span></a>
+      <a href="side.html">🍟 <span class="label">配餐與飲料</span></a>
+      <a href="calorie.html">📊 <span class="label">熱量資訊</span></a>
+      <a href="store.html">📍 <span class="label">門市據點</span></a>
+      <a href="franchise.html">🤝 <span class="label">加盟資訊</span></a>
+      <a href="contact.html"☎️ <span class="label">聯絡我們</span></a>
+    </nav>
+  </aside>
+
+
+  <!-- 右側內容 -->
+  <div>
+
+    <!-- 上方 Banner -->
+    <header>
+      <div class="banner" style="background-image:url('images/chicken-header.jpg');">
+        <div class="tools">
+          <button class="toolBtn">語系：中文</button>
+          <audio class="audio" controls src="media/webmusic.mp3"></audio>
+        </div>
+      </div>
+    </header>
+
+    <!-- 主要內容 -->
+    <main>
+
+      <!-- 頁面說明 -->
+      <article>
+        <h1>最新消息</h1>
+        <div class="content">
+          提供 瑪西搜唷 最新活動資訊、期間限定商品與門市公告，
+          歡迎持續關注我們的最新動態。
+        </div>
+      </article>
+
+      <!-- 公告 1 -->
+      <article>
+        <h1>🎉 新品上市｜甜辣洋釀炸雞正式登場</h1>
+        <div class="content">
+          深受顧客喜愛的甜辣洋釀炸雞正式回歸！
+          使用獨家韓式醬料，甜中帶辣、醬香濃郁，
+          即日起於全台門市限量供應，數量有限，售完為止。
+        </div>
+      </article>
+
+      <!-- 公告 2 -->
+      <article>
+        <h1>📢 限時優惠｜外帶炸雞享第二份 8 折</h1>
+        <div class="content">
+          為回饋支持 瑪西搜唷 的顧客，
+          即日起至本月底，外帶單點炸雞可享第二份 8 折優惠。
+          詳細活動內容依門市公告為準。
+        </div>
+      </article>
+
+      <!-- 公告 3 -->
+      <article>
+        <h1>🏪 門市公告｜部分門市營業時間調整</h1>
+        <div class="content">
+          因應人力與設備調整，
+          部分門市將於近期調整營業時間。
+          建議前往門市前，先至「門市據點」頁面查詢最新資訊。
+        </div>
+      </article>
+
+    </main>
+
+    <!-- 頁尾 -->
+    <footer>
+  <div class="footerRow footerOne">
+    © 2025 瑪西搜唷 MASISSOYO
+  </div>
+</footer>
+
+
+  </div>
+</div>
+
+<!-- 左側選單收合 -->
+<script>
+  const layout = document.getElementById("layout");
+  document.getElementById("toggleBtn").onclick = () => {
+    layout.classList.toggle("collapsed");
+  };
+</script>
+
+</body>
+</html>

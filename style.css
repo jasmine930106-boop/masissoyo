@@ -1,0 +1,413 @@
+/* =========================
+   MASISSOYO 韓式炸雞網站
+   奶油白 × 韓式紅 × 炭黑 × 金黃
+   ========================= */
+
+:root{
+  --red:#D61F2C;
+  --red-dark:#B51722;
+  --cream:#FFF7EC;
+  --paper:#FFFFFF;
+  --char:#111111;
+  --muted:#666666;
+  --gold:#F2B705;
+  --line:#E8E1D7;
+  --shadow:0 12px 30px rgba(0,0,0,.08);
+  --radius:16px;
+}
+
+/* ===== Reset ===== */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Microsoft JhengHei", "PingFang TC", sans-serif;
+  background:var(--cream);
+  color:var(--char);
+}
+
+/* =========================
+   Layout
+   ========================= */
+.layout{
+  display:grid;
+  grid-template-columns:270px 1fr;
+  min-height:100vh;
+}
+.layout.collapsed{
+  grid-template-columns:74px 1fr;
+}
+
+/* =========================
+   Sidebar（左側選單）
+   ========================= */
+.sidebar{
+  background:var(--cream);
+  border-right:1px solid var(--line);
+  padding:14px;
+}
+
+.asideTop{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:16px;
+}
+
+.brand{
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
+.brandText{
+  font-weight:900;
+  letter-spacing:.8px;
+}
+.brandSub{
+  font-size:12px;
+  color:rgba(0,0,0,.55);
+  margin-top:4px;
+}
+
+.toggle{
+  border:1px solid var(--line);
+  background:#fff;
+  color:#111;
+  border-radius:12px;
+  padding:6px 10px;
+  cursor:pointer;
+}
+
+.nav{
+  display:grid;
+  gap:10px;
+}
+
+.nav a{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px;
+  border-radius:14px;
+  text-decoration:none;
+  background:#fff;
+  color:#111;
+  border:1px solid var(--line);
+  transition:.15s;
+}
+
+.nav a:hover{
+  background:#FFF1DC;
+}
+
+.nav a.active{
+  background:linear-gradient(90deg,var(--red),var(--red-dark));
+  color:#fff;
+  border-color:var(--red);
+}
+
+.layout.collapsed .label,
+.layout.collapsed .brandSub,
+.layout.collapsed .brandText{
+  display:none;
+}
+
+/* =========================
+   Page container
+   ========================= */
+.page{
+  min-height:100vh;
+}
+
+/* =========================
+   Banner（其他頁）
+   ========================= */
+header .banner{
+  height:120px;
+  background-image: url('images/page-header.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; /* ← 關鍵 */
+  position: relative;
+}
+}
+
+/* tools */
+.tools{
+  position:absolute;
+  top:14px;
+  right:14px;
+  display:flex;
+  gap:10px;
+  z-index:5;
+}
+.toolBtn{
+  background:rgba(255,255,255,.85);
+  color:#111;
+  border:1px solid var(--line);
+  padding:6px 12px;
+  border-radius:999px;
+}
+.audio{height:32px}
+
+/* =========================
+   Main / Article
+   ========================= */
+main{
+  padding:20px;
+  max-width:1200px;
+}
+
+article{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:18px;
+  margin-bottom:16px;
+  box-shadow:var(--shadow);
+}
+
+article h1{
+  margin:0 0 10px;
+  color:var(--red);
+}
+
+article .content{
+  color:var(--muted);
+  line-height:1.7;
+}
+
+/* =========================
+   商品卡（menu / chicken / side）
+   ========================= */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+
+.product{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:14px;
+  box-shadow:var(--shadow);
+}
+
+.product h2{
+  margin:0 0 10px;
+  font-size:22px;
+}
+
+.imgWrap{
+  height:220px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  overflow:hidden;
+}
+
+.imgWrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.dash{
+  border-top:2px dashed #ccc;
+  margin:12px 0;
+}
+
+/* 🔴 關鍵：價格永遠只顯示一行 */
+.price{
+  font-size:18px;          /* 避免太大被擠行 */
+  font-weight:900;
+  color:var(--red);
+  white-space:nowrap;      /* 強制不換行 */
+  overflow:hidden;
+  text-overflow:ellipsis;  /* 超小螢幕才 ... */
+}
+
+/* =========================
+   Footer
+   ========================= */
+footer{
+  border-top:1px solid var(--line);
+  background:#fff;
+}
+
+.footerRow{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 20px;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  color:var(--muted);
+}
+
+.social{
+  display:flex;
+  justify-content:flex-end;
+  gap:14px;
+}
+
+/* =========================
+   Form
+   ========================= */
+input,textarea{
+  width:100%;
+  max-width:720px;
+  padding:10px;
+  border-radius:12px;
+  border:1px solid var(--line);
+}
+
+button{
+  background:var(--red);
+  color:#fff;
+  border:none;
+  padding:10px 16px;
+  border-radius:999px;
+  font-weight:900;
+}
+
+/* =========================
+   HERO（首頁）
+   ========================= */
+.hero{
+  position:relative;
+  min-height:100vh;
+  background-size:cover;
+  background-position:center;
+}
+
+.heroOverlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    180deg,
+    rgba(255,247,236,.82),
+    rgba(255,247,236,.92)
+  );
+}
+
+.heroCenter{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.heroSmall{
+  letter-spacing:4px;
+  font-weight:900;
+  opacity:.85;
+}
+
+.heroKorean{
+  margin:10px 0 18px;
+  opacity:.8;
+}
+
+.heroTitle{
+  font-size:clamp(90px,12vw,180px);
+  font-weight:1000;
+  letter-spacing:6px;
+}
+
+.heroLine{
+  width:60%;
+  border-top:1px solid rgba(0,0,0,.25);
+  margin:16px 0;
+}
+
+.heroSlogan{
+  font-size:18px;
+  opacity:.9;
+}
+
+/* =========================
+   RWD
+   ========================= */
+@media(max-width:1100px){
+  .grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr;}
+  .footerRow{grid-template-columns:1fr;text-align:center;}
+  .social{justify-content:center;}
+}
+@media(max-width:560px){
+  .grid{grid-template-columns:1fr;}
+}
+/* footer：兩欄版本（無網站地圖） */
+.footerTwo{
+  grid-template-columns: 1fr auto;
+}
+/* footer：單行置中版本 */
+.footerOne{
+  grid-template-columns: 1fr;
+  text-align: center;
+  justify-items: center;
+}
+/* 修正：banner 裡的語系+音樂固定右上角，不被遮罩/排版影響 */
+header .banner{
+  position: relative;      /* 讓 tools 的 absolute 以 banner 為基準 */
+  overflow: hidden;
+}
+
+header .banner .tools{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  left: auto;              /* 防止被其他規則拉去左邊 */
+  z-index: 10;             /* 一定要在遮罩上面 */
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* 如果你有加遮罩，確保遮罩在 tools 下面 */
+header .banner::after{
+  z-index: 1;
+}
+
+header .banner .tools *{
+  position: relative;
+  z-index: 10;
+}
+/* 修正：首頁(hero) 的語系+音樂固定右上角 */
+.hero{
+  position: relative;  /* 確保 tools 以 hero 為定位基準 */
+}
+
+.hero .tools{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  left: auto;
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+/* 側欄選單：每個白色按鈕長度/高度一致 */
+.nav a{
+  width: 100%;              /* 全部撐滿同一寬度 */
+  height: 52px;             /* 統一高度（你可改 50~56） */
+  padding: 0 14px;          /* 統一內距 */
+  display: flex;
+  align-items: center;
+  border-radius: 14px;
+}
+
+/* 文字不換行，避免某些頁變兩行導致按鈕變長 */
+.nav a .label{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  /* 太長就 ... */
+}
+
