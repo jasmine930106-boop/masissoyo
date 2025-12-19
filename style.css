@@ -684,6 +684,22 @@ header .banner .tools *{
     word-break: break-word;
   }
 }
+/* ===== 手機版：首頁 MASISSOYO 縮小、不裁切 ===== */
+@media (max-width: 900px){
+  .heroTitle{
+    font-size: 36px;        /* 手機固定小字 */
+    line-height: 1.1;
+    letter-spacing: 0.12em;
+    text-align: center;
+
+    white-space: nowrap;   /* 一定一行 */
+    overflow: visible;     /* 不裁切 */
+    max-width: 100%;
+    padding: 0 12px;
+    box-sizing: border-box;
+  }
+}
+
 
 
 
