@@ -363,5 +363,27 @@ footer{
     display: none !important;
   }
 }
+/* ===============================
+   取消「每頁內容強制一樣寬」
+   讓各頁可以自己長
+=============================== */
+
+/* 桌機：不要再強制 main 寬度 */
+.page main{
+  width: auto !important;
+  max-width: none !important;
+  margin: 0;
+}
+
+/* 手機：維持舒服內距，但不限制版型 */
+@media (max-width:900px){
+  .page main{
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0;
+    padding: 16px 12px 40px;
+  }
+}
+
 
 
