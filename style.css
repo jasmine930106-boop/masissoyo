@@ -1,49 +1,46 @@
-/* =========================
-   全站基礎設定
-========================= */
-*{ box-sizing: border-box; }
-html, body{ margin:0; padding:0; }
+/* =================================================
+   MASISSOYO｜穩定商用版 style.css（重來版）
+   桌機：左側選單
+   手機：右上 ☰ → 左側滑出
+================================================= */
+
+/* ---------- 基礎 Reset ---------- */
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
 
 html{
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  font-size: 16px;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+  font-size:16px;
 }
 
 body{
   font-family: system-ui, -apple-system, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-  line-height: 1.6;
   background:#FFF7EC;
   color:#111;
+  line-height:1.6;
 }
 
-/* =========================
-   色彩變數
-========================= */
+/* ---------- 色彩 ---------- */
 :root{
   --red:#D61F2C;
   --red-dark:#B51722;
   --cream:#FFF7EC;
   --paper:#FFFFFF;
-  --char:#111111;
-  --muted:#666666;
+  --muted:#666;
   --line:#E8E1D7;
-  --shadow:0 12px 30px rgba(0,0,0,.08);
+  --shadow:0 10px 24px rgba(0,0,0,.08);
   --radius:16px;
 }
 
-/* =========================
-   Layout（桌機）
-========================= */
+/* ---------- Layout（桌機） ---------- */
 .layout{
   display:grid;
   grid-template-columns:270px 1fr;
   min-height:100vh;
 }
 
-/* =========================
-   Sidebar（桌機）
-========================= */
+/* ---------- Sidebar（桌機） ---------- */
 .sidebar{
   background:var(--cream);
   border-right:1px solid var(--line);
@@ -62,15 +59,10 @@ body{
   flex-direction:column;
   line-height:1.1;
 }
-.brandText{
-  font-weight:900;
-}
-.brandSub{
-  font-size:12px;
-  opacity:.6;
-  margin-top:4px;
-}
+.brandText{ font-weight:900; }
+.brandSub{ font-size:12px; opacity:.6; margin-top:4px; }
 
+/* ☰（桌機顯示也沒關係） */
 .toggle{
   border:1px solid var(--line);
   background:#fff;
@@ -79,9 +71,7 @@ body{
   cursor:pointer;
 }
 
-/* =========================
-   導覽選單
-========================= */
+/* ---------- 導覽選單 ---------- */
 .nav{
   display:grid;
   gap:10px;
@@ -101,9 +91,7 @@ body{
   transition:.15s;
 }
 
-.nav a:hover{
-  background:#FFF1DC;
-}
+.nav a:hover{ background:#FFF1DC; }
 
 .nav a.active{
   background:linear-gradient(90deg,var(--red),var(--red-dark));
@@ -117,12 +105,8 @@ body{
   text-overflow:ellipsis;
 }
 
-/* =========================
-   Page
-========================= */
-.page{
-  min-height:100vh;
-}
+/* ---------- Page / Main ---------- */
+.page{ min-height:100vh; }
 
 .page main{
   width:min(1100px,100%);
@@ -130,6 +114,7 @@ body{
   padding:24px;
 }
 
+/* 文章卡片 */
 article{
   background:var(--paper);
   border:1px solid var(--line);
@@ -141,18 +126,43 @@ article{
 
 article h1{
   margin:0 0 10px;
+  color:var(--red);
   font-size:40px;
   line-height:1.15;
-  color:var(--red);
 }
 
-article .content{
-  color:var(--muted);
+article .content{ color:var(--muted); }
+
+/* ---------- Banner（內頁） ---------- */
+header .banner{
+  height:120px;
+  background-image:url("images/page-header.jpg");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  position:relative;
 }
 
-/* =========================
-   商品卡
-========================= */
+/* 工具列（語系＋音樂） */
+.tools{
+  position:absolute;
+  top:14px;
+  right:14px;
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.toolBtn{
+  background:rgba(255,255,255,.9);
+  border:1px solid var(--line);
+  padding:6px 12px;
+  border-radius:999px;
+}
+
+.audio{ height:32px; }
+
+/* ---------- 商品卡 ---------- */
 .grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -185,16 +195,24 @@ article .content{
 }
 
 .price{
-  margin-top:10px;
   font-size:18px;
   font-weight:900;
   color:var(--red);
   white-space:nowrap;
 }
 
-/* =========================
-   HERO（首頁）
-========================= */
+/* ---------- Footer ---------- */
+footer{
+  border-top:1px solid var(--line);
+  background:#fff;
+}
+.footerRow{
+  padding:14px;
+  text-align:center;
+  color:var(--muted);
+}
+
+/* ---------- HERO（首頁） ---------- */
 .hero{
   position:relative;
   min-height:100vh;
@@ -216,6 +234,7 @@ article .content{
   align-items:center;
   justify-content:center;
   text-align:center;
+  padding:0 16px;
 }
 
 .heroTitle{
@@ -224,31 +243,15 @@ article .content{
   letter-spacing:6px;
 }
 
-/* =========================
-   Footer
-========================= */
-footer{
-  border-top:1px solid var(--line);
-  background:#fff;
-}
-
-.footerRow{
-  padding:14px;
-  text-align:center;
-  color:var(--muted);
-}
-
-/* =========================
-   RWD（手機：唯一版本）
-========================= */
+/* =================================================
+   RWD（手機）— 唯一一套規則
+================================================= */
 @media (max-width:900px){
 
-  /* 版面 */
-  .layout{
-    display:block;
-  }
+  /* 版面改成一欄 */
+  .layout{ display:block; }
 
-  /* 上方列 */
+  /* 上方列（品牌 + ☰） */
   .sidebar{
     position:sticky;
     top:0;
@@ -258,14 +261,12 @@ footer{
     border-bottom:1px solid var(--line);
   }
 
-  .asideTop{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-  }
-
-  /* ☰ 一定出現 */
+  /* ☰ 固定右上角 */
   .toggle{
+    position:fixed;
+    top:14px;
+    right:14px;
+    z-index:5000;
     width:44px;
     height:44px;
     border-radius:999px;
@@ -273,9 +274,10 @@ footer{
     align-items:center;
     justify-content:center;
     font-size:20px;
+    background:rgba(255,255,255,.95);
   }
 
-  /* 抽屜選單 */
+  /* 左側滑出選單（沒有灰色遮罩） */
   .nav{
     position:fixed;
     top:0;
@@ -286,80 +288,41 @@ footer{
     background:var(--cream);
     border-right:1px solid var(--line);
     box-shadow:12px 0 30px rgba(0,0,0,.18);
+
     transform:translateX(-105%);
     transition:transform .28s ease;
-    z-index:3500;
+    z-index:4000;
+
     display:grid;
     gap:12px;
   }
 
+  /* JS 會切換 drawer-open */
   .layout.drawer-open .nav{
     transform:translateX(0);
   }
 
-  /* 遮罩 */
-  .layout::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.35);
-    opacity:0;
-    pointer-events:none;
-    transition:.28s;
-    z-index:3400;
-  }
-
-  .layout.drawer-open::before{
-    opacity:1;
-    pointer-events:auto;
-  }
-
   /* 內容 */
-  .page{
-    width:100%;
-  }
-
   .page main{
     padding:16px 12px 40px;
   }
 
-  article h1{
-    font-size:34px;
-  }
+  article h1{ font-size:34px; }
 
-  .grid{
-    grid-template-columns:1fr;
-  }
+  /* 商品改一欄 */
+  .grid{ grid-template-columns:1fr; }
 
-  /* 首頁大字不被切 */
+  /* 首頁字不要被切 */
   .heroTitle{
     font-size:36px;
     letter-spacing:.12em;
     white-space:nowrap;
-    padding:0 12px;
+    max-width:100%;
   }
+
+  .audio{ max-width:220px; }
 }
-/* ===== 修正抽屜與遮罩層級（最後一步） ===== */
-@media (max-width:900px){
 
-  /* 左側選單一定在遮罩上面 */
-  .nav{
-    z-index: 3600 !important;
-  }
-
-  /* 灰色遮罩在選單下面 */
-  .layout::before{
-    z-index: 3500 !important;
-  }
-
-  /* ☰ 在最上層 */
-  .toggle{
-    z-index: 3700 !important;
-  }
-}
-/* ===== 手機：不要灰色遮罩，選單只用 ☰ 開關 ===== */
-@media (max-width:900px){
-  .layout::before{
-    display: none !important;
-  }
+@media (max-width:560px){
+  .audio{ max-width:200px; }
 }
