@@ -851,6 +851,79 @@ header .banner .tools *{
     pointer-events: auto;
   }
 }
+/* ===============================
+   手機版最終修正：☰ 一定出現
+   =============================== */
+@media (max-width: 900px){
+
+  /* sidebar 本體：手機時完全藏到左邊 */
+  .sidebar{
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 78vw;
+    max-width: 320px;
+    background: #fff;
+    transform: translateX(-110%);
+    transition: transform .25s ease;
+    z-index: 3000;
+  }
+
+  /* 打開抽屜時才滑出 sidebar */
+  .layout.drawer-open .sidebar{
+    transform: translateX(0);
+  }
+
+  /* ===== 關鍵：☰ 獨立固定在右上角 ===== */
+  .toggle{
+    position: fixed !important;
+    top: 14px;
+    right: 14px;
+    z-index: 5000 !important;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,.15);
+    background: rgba(255,255,255,.95);
+
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  /* sidebar 上方那條（品牌區）不要再顯示 */
+  .asideTop{
+    position: relative;
+  }
+
+  /* 右側內容一定吃滿螢幕 */
+  .page{
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  /* 遮罩 */
+  .layout::before{
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+    z-index: 2000;
+  }
+  .layout.drawer-open::before{
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
 
 
 
