@@ -357,4 +357,11 @@ footer{
     z-index: 3700 !important;
   }
 }
+/* ===== 手機：不要灰色遮罩，選單只用 ☰ 開關 ===== */
+@media (max-width:900px){
+  .layout::before{
+    display: none !important;
+  }
+}
+
 
