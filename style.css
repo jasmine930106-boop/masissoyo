@@ -783,6 +783,75 @@ header .banner .tools *{
   }
 
 }
+/* ===== Mobile Drawer Fix: 讓 ☰ 永遠出現在右上角 ===== */
+@media (max-width: 900px) {
+
+  /* 手機版：sidebar 先滑到左邊藏起來 */
+  .sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 78vw;           /* 抽屜寬度 */
+    max-width: 340px;
+    transform: translateX(-110%);
+    transition: transform .25s ease;
+    z-index: 3000;
+    overflow: auto;
+  }
+  .layout.drawer-open .sidebar{
+    transform: translateX(0);
+  }
+
+  /* 手機版：右邊內容不要被 sidebar 影響 */
+  .page{
+    width: 100%;
+    margin-left: 0 !important;
+  }
+
+  /* ❶ 最重要：☰ 按鈕固定在右上角，永遠看得到 */
+  .toggle{
+    position: fixed !important;
+    top: 14px;
+    right: 14px;
+    z-index: 4000;          /* 比 banner/圖片更上層 */
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,.12);
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  /* ❷ 避免 banner / hero 蓋住按鈕 */
+  header, .banner, .hero{
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ❸ 半透明遮罩（點空白可關閉） */
+  .layout::before{
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease;
+    z-index: 2500;
+  }
+  .layout.drawer-open::before{
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
 
 
 
