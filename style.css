@@ -923,6 +923,82 @@ header .banner .tools *{
     pointer-events: auto;
   }
 }
+/* ===============================
+   最終修正（CSS only）
+   手機版：救回原本的 ☰ 按鈕
+   =============================== */
+@media (max-width: 900px){
+
+  /* sidebar 本體仍然是抽屜 */
+  .sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 78vw;
+    max-width: 320px;
+    transform: translateX(-110%);
+    transition: transform .25s ease;
+    z-index: 3000;
+  }
+  .layout.drawer-open .sidebar{
+    transform: translateX(0);
+  }
+
+  /* 🔑 關鍵：把 toggle 從 sidebar 拉出來 */
+  .toggle{
+    position: fixed !important;
+    top: 14px;
+    right: 14px;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+
+    background: rgba(255,255,255,.95);
+    border: 1px solid rgba(0,0,0,.15);
+
+    font-size: 20px;
+    cursor: pointer;
+
+    z-index: 5000 !important; /* 全站最高 */
+  }
+
+  /* 防止被 hero / banner 蓋掉 */
+  .hero,
+  .banner,
+  header{
+    position: relative;
+    z-index: 1;
+  }
+
+  /* 右側內容一定滿版 */
+  .page{
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  /* 遮罩 */
+  .layout::before{
+    content:"";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+    z-index: 2000;
+  }
+  .layout.drawer-open::before{
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
 
 
 
