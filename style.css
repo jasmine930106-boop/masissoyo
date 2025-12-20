@@ -1,57 +1,25 @@
 /* =========================
-   全站一致化（解決手機字大小/版面不一致）
-   ========================= */
-
-/* 1) 全站盒模型一致 */
+   全站基礎設定
+========================= */
 *{ box-sizing: border-box; }
 html, body{ margin:0; padding:0; }
 
-/* 2) iPhone 會偷偷把字放大（導致每頁字大小不同）
-      這行就是專門治這個 */
 html{
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  font-size: 16px; /* 全站基準 */
+  font-size: 16px;
 }
 
-/* 3) 全站文字基礎統一 */
 body{
   font-family: system-ui, -apple-system, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
   line-height: 1.6;
-  color: #111;
+  background:#FFF7EC;
+  color:#111;
 }
 
-/* 4) 讓每頁右側內容區的寬度、留白統一（超重要） */
-.page main{
-  width: min(1100px, 100%);
-  margin: 0 auto;
-  padding: 24px;
-}
-
-/* 5) 每一頁的文章卡片/標題（避免有的頁面 h1 超大） */
-.page article h1{
-  margin: 0 0 10px;
-  font-size: 40px;
-  line-height: 1.15;
-}
-
-/* 6) 手機版統一：標題/內文字級（避免某頁看起來更大） */
-@media (max-width: 900px){
-  .page main{ padding: 16px; }
-
-  .page article h1{
-    font-size: 34px;  /* 手機頁面大標統一 */
-  }
-
-  body{
-    font-size: 16px;  /* 手機內文統一 */
-  }
-}
 /* =========================
-   MASISSOYO 韓式炸雞網站
-   奶油白 × 韓式紅 × 炭黑 × 金黃
-   ========================= */
-
+   色彩變數
+========================= */
 :root{
   --red:#D61F2C;
   --red-dark:#B51722;
@@ -59,37 +27,23 @@ body{
   --paper:#FFFFFF;
   --char:#111111;
   --muted:#666666;
-  --gold:#F2B705;
   --line:#E8E1D7;
   --shadow:0 12px 30px rgba(0,0,0,.08);
   --radius:16px;
 }
 
-/* ===== Reset ===== */
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family: system-ui, -apple-system, "Microsoft JhengHei", "PingFang TC", sans-serif;
-  background:var(--cream);
-  color:var(--char);
-}
-
 /* =========================
-   Layout
-   ========================= */
+   Layout（桌機）
+========================= */
 .layout{
   display:grid;
   grid-template-columns:270px 1fr;
   min-height:100vh;
 }
-.layout.collapsed{
-  grid-template-columns:74px 1fr;
-}
 
 /* =========================
-   Sidebar（左側選單）
-   ========================= */
+   Sidebar（桌機）
+========================= */
 .sidebar{
   background:var(--cream);
   border-right:1px solid var(--line);
@@ -110,23 +64,24 @@ body{
 }
 .brandText{
   font-weight:900;
-  letter-spacing:.8px;
 }
 .brandSub{
   font-size:12px;
-  color:rgba(0,0,0,.55);
+  opacity:.6;
   margin-top:4px;
 }
 
 .toggle{
   border:1px solid var(--line);
   background:#fff;
-  color:#111;
   border-radius:12px;
   padding:6px 10px;
   cursor:pointer;
 }
 
+/* =========================
+   導覽選單
+========================= */
 .nav{
   display:grid;
   gap:10px;
@@ -136,7 +91,8 @@ body{
   display:flex;
   align-items:center;
   gap:10px;
-  padding:12px;
+  height:52px;
+  padding:0 14px;
   border-radius:14px;
   text-decoration:none;
   background:#fff;
@@ -155,56 +111,23 @@ body{
   border-color:var(--red);
 }
 
-.layout.collapsed .label,
-.layout.collapsed .brandSub,
-.layout.collapsed .brandText{
-  display:none;
+.nav a .label{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 /* =========================
-   Page container
-   ========================= */
+   Page
+========================= */
 .page{
   min-height:100vh;
 }
 
-/* =========================
-   Banner（其他頁）
-   ========================= */
-header .banner{
-  height:120px;
-  background-image: url('images/page-header.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat; /* ← 關鍵 */
-  position: relative;
-}
-}
-
-/* tools */
-.tools{
-  position:absolute;
-  top:14px;
-  right:14px;
-  display:flex;
-  gap:10px;
-  z-index:5;
-}
-.toolBtn{
-  background:rgba(255,255,255,.85);
-  color:#111;
-  border:1px solid var(--line);
-  padding:6px 12px;
-  border-radius:999px;
-}
-.audio{height:32px}
-
-/* =========================
-   Main / Article
-   ========================= */
-main{
-  padding:20px;
-  max-width:1200px;
+.page main{
+  width:min(1100px,100%);
+  margin:0 auto;
+  padding:24px;
 }
 
 article{
@@ -218,17 +141,18 @@ article{
 
 article h1{
   margin:0 0 10px;
+  font-size:40px;
+  line-height:1.15;
   color:var(--red);
 }
 
 article .content{
   color:var(--muted);
-  line-height:1.7;
 }
 
 /* =========================
-   商品卡（menu / chicken / side）
-   ========================= */
+   商品卡
+========================= */
 .grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -250,7 +174,6 @@ article .content{
 
 .imgWrap{
   height:220px;
-  border:1px solid var(--line);
   border-radius:14px;
   overflow:hidden;
 }
@@ -261,68 +184,17 @@ article .content{
   object-fit:cover;
 }
 
-.dash{
-  border-top:2px dashed #ccc;
-  margin:12px 0;
-}
-
-/* 🔴 關鍵：價格永遠只顯示一行 */
 .price{
-  font-size:18px;          /* 避免太大被擠行 */
+  margin-top:10px;
+  font-size:18px;
   font-weight:900;
   color:var(--red);
-  white-space:nowrap;      /* 強制不換行 */
-  overflow:hidden;
-  text-overflow:ellipsis;  /* 超小螢幕才 ... */
-}
-
-/* =========================
-   Footer
-   ========================= */
-footer{
-  border-top:1px solid var(--line);
-  background:#fff;
-}
-
-.footerRow{
-  max-width:1200px;
-  margin:auto;
-  padding:14px 20px;
-  display:grid;
-  grid-template-columns:1fr auto 1fr;
-  align-items:center;
-  color:var(--muted);
-}
-
-.social{
-  display:flex;
-  justify-content:flex-end;
-  gap:14px;
-}
-
-/* =========================
-   Form
-   ========================= */
-input,textarea{
-  width:100%;
-  max-width:720px;
-  padding:10px;
-  border-radius:12px;
-  border:1px solid var(--line);
-}
-
-button{
-  background:var(--red);
-  color:#fff;
-  border:none;
-  padding:10px 16px;
-  border-radius:999px;
-  font-weight:900;
+  white-space:nowrap;
 }
 
 /* =========================
    HERO（首頁）
-   ========================= */
+========================= */
 .hero{
   position:relative;
   min-height:100vh;
@@ -333,11 +205,7 @@ button{
 .heroOverlay{
   position:absolute;
   inset:0;
-  background:linear-gradient(
-    180deg,
-    rgba(255,247,236,.82),
-    rgba(255,247,236,.92)
-  );
+  background:rgba(255,247,236,.9);
 }
 
 .heroCenter{
@@ -350,660 +218,124 @@ button{
   text-align:center;
 }
 
-.heroSmall{
-  letter-spacing:4px;
-  font-weight:900;
-  opacity:.85;
-}
-
-.heroKorean{
-  margin:10px 0 18px;
-  opacity:.8;
-}
-
 .heroTitle{
   font-size:clamp(90px,12vw,180px);
   font-weight:1000;
   letter-spacing:6px;
 }
 
-.heroLine{
-  width:60%;
-  border-top:1px solid rgba(0,0,0,.25);
-  margin:16px 0;
-}
-
-.heroSlogan{
-  font-size:18px;
-  opacity:.9;
-}
-
 /* =========================
-   RWD
-   ========================= */
-@media(max-width:1100px){
-  .grid{grid-template-columns:repeat(2,1fr);}
-}
-@media(max-width:900px){
-  .layout{grid-template-columns:1fr;}
-  .footerRow{grid-template-columns:1fr;text-align:center;}
-  .social{justify-content:center;}
-}
-@media(max-width:560px){
-  .grid{grid-template-columns:1fr;}
-}
-/* footer：兩欄版本（無網站地圖） */
-.footerTwo{
-  grid-template-columns: 1fr auto;
-}
-/* footer：單行置中版本 */
-.footerOne{
-  grid-template-columns: 1fr;
-  text-align: center;
-  justify-items: center;
-}
-/* 修正：banner 裡的語系+音樂固定右上角，不被遮罩/排版影響 */
-header .banner{
-  position: relative;      /* 讓 tools 的 absolute 以 banner 為基準 */
-  overflow: hidden;
-}
-
-header .banner .tools{
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  left: auto;              /* 防止被其他規則拉去左邊 */
-  z-index: 10;             /* 一定要在遮罩上面 */
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-/* 如果你有加遮罩，確保遮罩在 tools 下面 */
-header .banner::after{
-  z-index: 1;
-}
-
-header .banner .tools *{
-  position: relative;
-  z-index: 10;
-}
-/* 修正：首頁(hero) 的語系+音樂固定右上角 */
-.hero{
-  position: relative;  /* 確保 tools 以 hero 為定位基準 */
-}
-
-.hero .tools{
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  left: auto;
-  z-index: 10;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-/* 側欄選單：每個白色按鈕長度/高度一致 */
-.nav a{
-  width: 100%;              /* 全部撐滿同一寬度 */
-  height: 52px;             /* 統一高度（你可改 50~56） */
-  padding: 0 14px;          /* 統一內距 */
-  display: flex;
-  align-items: center;
-  border-radius: 14px;
-}
-
-/* 文字不換行，避免某些頁變兩行導致按鈕變長 */
-.nav a .label{
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;  /* 太長就 ... */
-}
-/* ========== RWD：手機版面修正（貼到 style.css 最底下） ========== */
-@media (max-width: 900px){
-
-  /* 1) 版面改成上下排列：側欄變上方，內容在下面 */
-  .layout{
-    grid-template-columns: 1fr !important;
-  }
-
-  .sidebar{
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-    height: auto;
-    border-right: none;
-    border-bottom: 1px solid rgba(0,0,0,.08);
-    padding: 12px 12px 10px;
-  }
-
-  /* 2) 讓上方品牌 + 漢堡按鈕左右排 */
-  .asideTop{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-  }
-
-  /* 3) 手機預設：收起選單（不佔畫面） */
-  .nav{
-    display: none;
-    margin-top: 10px;
-  }
-
-  /* 點漢堡後展開（沿用你原本的 collapsed 邏輯）
-     如果你現在是 layout.classList.toggle("collapsed")，
-     代表：有 collapsed = 收起 / 沒有 = 展開
-     那我們用「沒有 collapsed 時顯示 nav」 */
-  .layout:not(.collapsed) .nav{
-    display: grid;
-    gap: 10px;
-  }
-
-  /* 4) 選單按鈕統一、手機比較好點 */
-  .nav a{
-    width: 100%;
-    height: 48px;
-    padding: 0 14px;
-    display: flex;
-    align-items: center;
-    border-radius: 14px;
-  }
-
-  .nav a .label{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  /* 5) 右側內容不要被擠 */
-  .page{
-    width: 100%;
-  }
-
-  main{
-    padding: 16px 12px 40px;
-  }
-
-  /* 6) Banner 高度稍微縮，tools 不要超出 */
-  header .banner{
-    height: 120px;
-  }
-
-  header .banner .tools,
-  .hero .tools{
-    top: 10px;
-    right: 10px;
-    gap: 8px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-  }
-
-  /* 7) audio 太長就換行，不會把版面撐爆 */
-  .audio{
-    max-width: 220px;
-  }
-
-  /* 8) 商品格子改成 1 欄或 2 欄（依你喜歡）
-        這裡用 1 欄最穩，不會擠 */
-  .grid{
-    grid-template-columns: 1fr !important;
-  }
-
-  /* 9) 圖片不要超出卡片 */
-  img{
-    max-width: 100%;
-    height: auto;
-  }
-}
-
-/* 讓遮罩不擋手機點擊（如果你有 ::after 遮罩） */
-.banner::after,
-.hero::after{
-  pointer-events: none;
-}
-/* =========================
-   RWD：手機「右上角按鈕 + 左側滑出選單」
-   貼到 style.css 最底下
+   Footer
 ========================= */
-
-@media (max-width: 900px){
-
-  /* 1) 手機：上方變成一條 header 느낌（sidebar 只留品牌+按鈕） */
-  .layout{
-    display: block !important;
-  }
-
-  .sidebar{
-    position: sticky;
-    top: 0;
-    z-index: 1200;
-    width: 100%;
-    height: auto;
-    padding: 14px 14px 10px;
-    border-right: none;
-    border-bottom: 1px solid rgba(0,0,0,.08);
-    background: var(--bg, #fbf4ea);
-  }
-
-  .asideTop{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-  }
-
-  /* 右上角按鈕固定在最右邊 */
-  .toggle{
-    width: 44px;
-    height: 44px;
-    border-radius: 999px;
-  }
-
-  /* 2) 手機：把 nav 變成「抽屜」，預設藏在左邊 */
-  .nav{
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100dvh;           /* iPhone 比 100vh 更穩 */
-    width: min(86vw, 340px);  /* 抽屜寬度 */
-    padding: 92px 14px 18px;  /* 上面留空給品牌區 */
-    background: var(--bg, #fbf4ea);
-    border-right: 1px solid rgba(0,0,0,.12);
-    box-shadow: 12px 0 30px rgba(0,0,0,.18);
-    overflow: auto;
-
-    transform: translateX(-105%);
-    transition: transform .28s ease;
-    z-index: 1400;
-
-    display: grid;
-    gap: 12px;
-  }
-
-  /* nav 裡的按鈕：大一點好點 */
-  .nav a{
-    height: 52px;
-    width: 100%;
-    border-radius: 16px;
-  }
-
-  /* 3) 抽屜打開狀態：加一個 class 控制 */
-  .layout.drawer-open .nav{
-    transform: translateX(0);
-  }
-
-  /* 4) 抽屜打開時的遮罩（點遮罩可關閉） */
-  .layout::before{
-    content:"";
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.35);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .28s ease;
-    z-index: 1300;
-  }
-
-  .layout.drawer-open::before{
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  /* 5) 右側內容正常往下，不要被 nav 影響 */
-  .page{
-    width: 100%;
-  }
-
-  main{
-    padding: 16px 12px 44px;
-  }
-
-  /* 6) Banner 工具列固定右上，不要跑位 */
-  .tools{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 5;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-  }
-
-  .audio{
-    max-width: 240px;
-  }
-
-  /* 7) 商品卡：手機改 1 欄最穩 */
-  .grid{
-    grid-template-columns: 1fr !important;
-  }
+footer{
+  border-top:1px solid var(--line);
+  background:#fff;
 }
 
-/* 遮罩不要擋點擊（如果你有 banner::after / hero::after） */
-.banner::after,
-.hero::after{
-  pointer-events: none;
+.footerRow{
+  padding:14px;
+  text-align:center;
+  color:var(--muted);
 }
-/* ===== 修正：手機抽屜可點（遮罩層級）===== */
-@media (max-width: 900px){
 
-  /* 抽屜本體一定要在遮罩上面 */
-  .nav{
-    z-index: 2000 !important;
-    position: fixed;
-  }
-
-  /* 黑色遮罩在抽屜下面 */
-  .layout::before{
-    z-index: 1500 !important;
-  }
-
-  /* 右上角按鈕也要在最上層 */
-  .sidebar{
-    z-index: 2100 !important;
-  }
-
-  /* 內容在最下面 */
-  .page{
-    position: relative;
-    z-index: 1;
-  }
-}
-/* ===== 手機：首頁大字左右不被切掉（通用版）===== */
-@media (max-width: 900px){
-  /* 首頁主要內容左右留白，避免文字貼邊被切 */
-  .page{
-    padding-left: 16px;
-    padding-right: 16px;
-    box-sizing: border-box;
-  }
-
-  /* 如果首頁的大字是 h1（很常見），用 clamp 自動縮放 */
-  .page h1{
-    font-size: clamp(42px, 14vw, 72px); /* 會隨手機寬度縮放 */
-    line-height: 1.05;
-    letter-spacing: 0.06em;
-    text-align: center;
-
-    /* 防止任何溢出 */
-    max-width: 100%;
-    overflow-wrap: anywhere;
-    word-break: break-word;
-  }
-}
-/* ===== 手機版：首頁 MASISSOYO 縮小、不裁切 ===== */
-@media (max-width: 900px){
-  .heroTitle{
-    font-size: 36px;        /* 手機固定小字 */
-    line-height: 1.1;
-    letter-spacing: 0.12em;
-    text-align: center;
-
-    white-space: nowrap;   /* 一定一行 */
-    overflow: visible;     /* 不裁切 */
-    max-width: 100%;
-    padding: 0 12px;
-    box-sizing: border-box;
-  }
-}
 /* =========================
-   手機版：修正內容變窄問題
-   ========================= */
+   RWD（手機：唯一版本）
+========================= */
+@media (max-width:900px){
 
-@media (max-width: 900px){
+  /* 版面 */
+  .layout{
+    display:block;
+  }
 
-  /* 1️⃣ sidebar 在手機不佔版面空間 */
+  /* 上方列 */
   .sidebar{
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    transform: translateX(-100%);
-    z-index: 1000;
+    position:sticky;
+    top:0;
+    z-index:3000;
+    width:100%;
+    border-right:none;
+    border-bottom:1px solid var(--line);
   }
 
-  /* 打開抽屜時才滑出來 */
-  .layout.drawer-open .sidebar{
-    transform: translateX(0);
-  }
-
-  /* 2️⃣ 右側頁面「一定要吃滿螢幕」 */
-  .page{
-    margin-left: 0 !important;
-    width: 100% !important;
-  }
-
-  /* 3️⃣ main 也不能被限制寬度 */
-  .page main{
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 auto;
-  }
-
-}
-/* ===== Mobile Drawer Fix: 讓 ☰ 永遠出現在右上角 ===== */
-@media (max-width: 900px) {
-
-  /* 手機版：sidebar 先滑到左邊藏起來 */
-  .sidebar{
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 78vw;           /* 抽屜寬度 */
-    max-width: 340px;
-    transform: translateX(-110%);
-    transition: transform .25s ease;
-    z-index: 3000;
-    overflow: auto;
-  }
-  .layout.drawer-open .sidebar{
-    transform: translateX(0);
-  }
-
-  /* 手機版：右邊內容不要被 sidebar 影響 */
-  .page{
-    width: 100%;
-    margin-left: 0 !important;
-  }
-
-  /* ❶ 最重要：☰ 按鈕固定在右上角，永遠看得到 */
-  .toggle{
-    position: fixed !important;
-    top: 14px;
-    right: 14px;
-    z-index: 4000;          /* 比 banner/圖片更上層 */
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 999px;
-    border: 1px solid rgba(0,0,0,.12);
-    background: rgba(255,255,255,.92);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    font-size: 18px;
-    cursor: pointer;
-  }
-
-  /* ❷ 避免 banner / hero 蓋住按鈕 */
-  header, .banner, .hero{
-    position: relative;
-    z-index: 1;
-  }
-
-  /* ❸ 半透明遮罩（點空白可關閉） */
-  .layout::before{
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.35);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .2s ease;
-    z-index: 2500;
-  }
-  .layout.drawer-open::before{
-    opacity: 1;
-    pointer-events: auto;
-  }
-}
-/* ===============================
-   手機版最終修正：☰ 一定出現
-   =============================== */
-@media (max-width: 900px){
-
-  /* sidebar 本體：手機時完全藏到左邊 */
-  .sidebar{
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 78vw;
-    max-width: 320px;
-    background: #fff;
-    transform: translateX(-110%);
-    transition: transform .25s ease;
-    z-index: 3000;
-  }
-
-  /* 打開抽屜時才滑出 sidebar */
-  .layout.drawer-open .sidebar{
-    transform: translateX(0);
-  }
-
-  /* ===== 關鍵：☰ 獨立固定在右上角 ===== */
-  .toggle{
-    position: fixed !important;
-    top: 14px;
-    right: 14px;
-    z-index: 5000 !important;
-
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-
-    width: 44px;
-    height: 44px;
-    border-radius: 999px;
-    border: 1px solid rgba(0,0,0,.15);
-    background: rgba(255,255,255,.95);
-
-    font-size: 20px;
-    cursor: pointer;
-  }
-
-  /* sidebar 上方那條（品牌區）不要再顯示 */
   .asideTop{
-    position: relative;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
   }
 
-  /* 右側內容一定吃滿螢幕 */
-  .page{
-    width: 100% !important;
-    margin-left: 0 !important;
-  }
-
-  /* 遮罩 */
-  .layout::before{
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.35);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .25s ease;
-    z-index: 2000;
-  }
-  .layout.drawer-open::before{
-    opacity: 1;
-    pointer-events: auto;
-  }
-}
-/* ===============================
-   最終修正（CSS only）
-   手機版：救回原本的 ☰ 按鈕
-   =============================== */
-@media (max-width: 900px){
-
-  /* sidebar 本體仍然是抽屜 */
-  .sidebar{
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 78vw;
-    max-width: 320px;
-    transform: translateX(-110%);
-    transition: transform .25s ease;
-    z-index: 3000;
-  }
-  .layout.drawer-open .sidebar{
-    transform: translateX(0);
-  }
-
-  /* 🔑 關鍵：把 toggle 從 sidebar 拉出來 */
+  /* ☰ 一定出現 */
   .toggle{
-    position: fixed !important;
-    top: 14px;
-    right: 14px;
-
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-
-    width: 44px;
-    height: 44px;
-    border-radius: 999px;
-
-    background: rgba(255,255,255,.95);
-    border: 1px solid rgba(0,0,0,.15);
-
-    font-size: 20px;
-    cursor: pointer;
-
-    z-index: 5000 !important; /* 全站最高 */
+    width:44px;
+    height:44px;
+    border-radius:999px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
   }
 
-  /* 防止被 hero / banner 蓋掉 */
-  .hero,
-  .banner,
-  header{
-    position: relative;
-    z-index: 1;
+  /* 抽屜選單 */
+  .nav{
+    position:fixed;
+    top:0;
+    left:0;
+    height:100dvh;
+    width:min(86vw,340px);
+    padding:90px 14px 20px;
+    background:var(--cream);
+    border-right:1px solid var(--line);
+    box-shadow:12px 0 30px rgba(0,0,0,.18);
+    transform:translateX(-105%);
+    transition:transform .28s ease;
+    z-index:3500;
+    display:grid;
+    gap:12px;
   }
 
-  /* 右側內容一定滿版 */
-  .page{
-    width: 100% !important;
-    margin-left: 0 !important;
+  .layout.drawer-open .nav{
+    transform:translateX(0);
   }
 
   /* 遮罩 */
   .layout::before{
     content:"";
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.35);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .25s ease;
-    z-index: 2000;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.35);
+    opacity:0;
+    pointer-events:none;
+    transition:.28s;
+    z-index:3400;
   }
+
   .layout.drawer-open::before{
-    opacity: 1;
-    pointer-events: auto;
+    opacity:1;
+    pointer-events:auto;
+  }
+
+  /* 內容 */
+  .page{
+    width:100%;
+  }
+
+  .page main{
+    padding:16px 12px 40px;
+  }
+
+  article h1{
+    font-size:34px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  /* 首頁大字不被切 */
+  .heroTitle{
+    font-size:36px;
+    letter-spacing:.12em;
+    white-space:nowrap;
+    padding:0 12px;
   }
 }
-
-
-
-
-
-
-
-
-
