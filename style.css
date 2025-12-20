@@ -339,3 +339,22 @@ footer{
     padding:0 12px;
   }
 }
+/* ===== 修正抽屜與遮罩層級（最後一步） ===== */
+@media (max-width:900px){
+
+  /* 左側選單一定在遮罩上面 */
+  .nav{
+    z-index: 3600 !important;
+  }
+
+  /* 灰色遮罩在選單下面 */
+  .layout::before{
+    z-index: 3500 !important;
+  }
+
+  /* ☰ 在最上層 */
+  .toggle{
+    z-index: 3700 !important;
+  }
+}
+
