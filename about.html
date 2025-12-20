@@ -11,18 +11,17 @@
 <div class="layout" id="layout">
 
   <!-- 左側選單 -->
-  <aside class="sidebar">
+  <aside>
     <div class="asideTop">
       <div class="brand">
         <span class="brandText">瑪西搜唷</span>
-        <span class="brandSub">MASISSOYO</span>
       </div>
-      <button class="toggle" id="toggleBtn" aria-label="toggle menu">☰</button>
+      <button class="toggle" id="toggleBtn">☰</button>
     </div>
 
     <nav class="nav">
       <a href="index.html">🏠 <span class="label">首頁</span></a>
-     <a class="active" href="about.html">📖 <span class="label">品牌故事</span></a>
+      <a class="active" href="about.html">📖 <span class="label">品牌故事</span></a>
       <a href="news.html">📰 <span class="label">最新消息</span></a>
       <a href="menu.html">⭐ <span class="label">精選菜單</span></a>
       <a href="chicken.html">🍗 <span class="label">單點炸雞</span></a>
@@ -34,13 +33,12 @@
     </nav>
   </aside>
 
-
   <!-- 右側內容 -->
   <div>
 
     <!-- 上方 Banner -->
     <header>
-      <div class="banner" style="background-image:url('images/chicken-header.jpg');">
+      <div class="banner">
         <div class="tools">
           <button class="toolBtn">語系：中文</button>
           <audio class="audio" controls src="media/webmusic.mp3"></audio>
@@ -88,12 +86,16 @@
 
     <!-- 頁尾 -->
     <footer>
-  <div class="footerRow footerOne">
-    © 2025 瑪西搜唷 MASISSOYO
-  </div>
-</footer>
-
-
+      <div class="footerRow">
+        <div><a href="sitemap.html">網站地圖</a></div>
+        <div>© 2025 瑪西搜唷</div>
+        <div class="social">
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+          <a href="#">Line</a>
+        </div>
+      </div>
+    </footer>
 
   </div>
 </div>
@@ -101,41 +103,10 @@
 <!-- 左側選單收合 -->
 <script>
   const layout = document.getElementById("layout");
-  const btn = document.getElementById("toggleBtn");
-
-  // 點右上角按鈕：開/關抽屜
-  btn.addEventListener("click", () => {
-    layout.classList.toggle("drawer-open");
-  });
-
-  // 點遮罩關閉（點黑色半透明區）
-  layout.addEventListener("click", (e) => {
-    if (e.target === layout) return;
-  });
-
-  // 因為遮罩是 layout::before（CSS 偽元素），抓不到 click
-  // 所以用「點任何頁面空白處」關閉：簡單穩定
-  document.addEventListener("click", (e) => {
-    const isMobile = window.matchMedia("(max-width: 900px)").matches;
-    if (!isMobile) return;
-
-    const nav = document.querySelector(".nav");
-    const clickedInNav = nav && nav.contains(e.target);
-    const clickedBtn = btn.contains(e.target);
-
-    if (!clickedInNav && !clickedBtn) {
-      layout.classList.remove("drawer-open");
-    }
-  });
-
-  // 點選單連結後自動收起（手機體驗像正式網站）
-  document.querySelectorAll(".nav a").forEach(a => {
-    a.addEventListener("click", () => {
-      layout.classList.remove("drawer-open");
-    });
-  });
+  document.getElementById("toggleBtn").onclick = () => {
+    layout.classList.toggle("collapsed");
+  };
 </script>
-
 
 </body>
 </html>
